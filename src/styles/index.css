@@ -7,7 +7,7 @@
 
 .audio-player li.selected {
   background-color: #969797;
- 
+
   color: white;
 }
 .audio-player button {
@@ -16,13 +16,26 @@
   color: rgb(65, 63, 63);
   padding-bottom: 9px;
   border-radius: 10px;
+  width: 65px;
 }
-li{
-    border: 1px solid rgb(92, 92, 92);
-    font-size: 22px;  
+li {
+  border: 1px solid rgb(92, 92, 92);
+  font-size: 22px;
 }
-.botones{
-    justify-content: center;
-    background-color: #969797;
-    
+.botones {
+  justify-content: center;
+  background-color: #5a5959;
 }
+li:hover {
+  cursor: pointer;
+  background-color: #969797;
+}
+
+.audio-player:hover button:hover {
+  background-color: #979696;
+}
+
+.progress-bar-container {
+	padding-left: 10px;
+}
+
