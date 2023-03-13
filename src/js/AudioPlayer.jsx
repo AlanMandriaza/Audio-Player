@@ -53,8 +53,7 @@ function AudioPlayer() {
   }
 
   function handleProgressBarClick(event) {
-    const newTime =
-      (event.offsetX / progressBarRef.current.offsetWidth) * duration;
+    const newTime = (event.offsetX / progressBarRef.current.offsetWidth) * duration;
     audioRef.current.currentTime = newTime;
     setCurrentTime(newTime);
   }
@@ -72,9 +71,9 @@ function AudioPlayer() {
         ref={audioRef}
         src={`https://assets.breatheco.de/apis/sound/${songs[currentSongIndex]?.url}`}
         onEnded={handleNextSong}
-        onTimeUpdate={handleTimeUpdate}
+        onTimeUpdate={handleTimeUpdate}autoplay="autoplay"
       />
-
+  
       <ol>
         {/* Lista de canciones */}
         {songs.map((song, index) => (
@@ -86,7 +85,7 @@ function AudioPlayer() {
             {song.name}
           </li>
         ))}
-
+  
         {/* Botones para controlar la reproducción */}
         <div className="botones d-flex">
           <button onClick={handlePrevSong}>
@@ -98,22 +97,24 @@ function AudioPlayer() {
           <button onClick={handleNextSong}>
             <FaArrowRight />
           </button>
-          {/* Barra de progreso */}
-          <div className="progress-bar-container">
-            <progress
-              ref={progressBarRef}
-              value={currentTime}
-              max={duration}
-              onClick={handleProgressBarClick}
-            />
-            <div className="current-time">
-              {isNaN(currentTime) ? "0:00" : formatTime(currentTime)}{" "}
-              {isNaN(duration) ? "0:00" : formatTime(duration)}
-            </div>
+           {/* Barra de progreso */}
+        <div className="progress-bar-container">
+          <progress
+            ref={progressBarRef}
+            value={currentTime}
+            max={duration}
+            onClick={handleProgressBarClick}
+          />
+          <div className="current-time">
+            {isNaN(currentTime) ? "0:00" : formatTime(currentTime)} {isNaN(duration) ? "0:00" : formatTime(duration)}
           </div>
+         
         </div>
+        </div>
+  
+       
       </ol>
     </div>
   );
-}
-export default AudioPlayer;
+  
+}  export default AudioPlayer;
