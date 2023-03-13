@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../styles/index.css";
+import { FaPause, FaPlay, FaAngleRight, FaAngleLeft } from "react-icons/fa";
 
 function AudioPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -62,9 +63,10 @@ function AudioPlayer() {
           </li>
         ))}
       </ul>
-      <button onClick={handlePrevSong}>Previous</button>
-      <button onClick={handlePlayPause}>{isPlaying ? "Pause" : "Play"}</button>
-      <button onClick={handleNextSong}>Next</button>
+      <button onClick={handlePrevSong}><FaAngleLeft/></button>
+      <button onClick={handlePlayPause}>{isPlaying ? <FaPause /> : <FaPlay />}</button>
+      
+<button onClick={handleNextSong}><FaAngleRight /></button>
     </div>
   );
 }
