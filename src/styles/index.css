@@ -1,13 +1,28 @@
 .audio-player {
-    background-color: white;
-    padding: 20px;
-    background-color: rgb(65, 63, 63);
-    color: white;
-  }
-  
-  .audio-player li.selected {
+  background-color: white;
+  padding: 20px;
+  background-color: rgb(65, 63, 63);
+  color: white;
+}
+
+.audio-player li.selected {
+  background-color: #969797;
+ 
+  color: white;
+}
+.audio-player button {
+  font-size: 34px;
+  background-color: #ffffff;
+  color: rgb(65, 63, 63);
+  padding-bottom: 9px;
+  border-radius: 10px;
+}
+li{
+    border: 1px solid rgb(92, 92, 92);
+    font-size: 22px;  
+}
+.botones{
+    justify-content: center;
     background-color: #969797;
-    border: 1px solid rgb(216, 216, 216);
-    color: white;
-  }
-  
+    
+}

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../styles/index.css";
-import { FaPause, FaPlay, FaAngleRight, FaAngleLeft } from "react-icons/fa";
+import { FaPause, FaPlay, FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
 function AudioPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -51,8 +51,8 @@ function AudioPlayer() {
         src={`https://assets.breatheco.de/apis/sound/${songs[currentSongIndex]?.url}`}
         onEnded={handleNextSong}
       />
-      
-      <ul>
+
+      <ol>
         {songs.map((song, index) => (
           <li
             key={`${song.id}-${song.name}`}
@@ -60,13 +60,23 @@ function AudioPlayer() {
             className={index === currentSongIndex ? "selected" : ""}
           >
             {song.name}
+            
           </li>
         ))}
-      </ul>
-      <button onClick={handlePrevSong}><FaAngleLeft/></button>
-      <button onClick={handlePlayPause}>{isPlaying ? <FaPause /> : <FaPlay />}</button>
-      
-<button onClick={handleNextSong}><FaAngleRight /></button>
+
+        <div className="botones d-flex">
+        <button onClick={handlePrevSong}>
+          <FaArrowLeft />
+        </button>
+        <button onClick={handlePlayPause}>
+          {isPlaying ? <FaPause /> : <FaPlay />}
+        </button>
+
+        <button onClick={handleNextSong}>
+          <FaArrowRight />
+        </button>
+        </div>
+      </ol>
     </div>
   );
 }
