@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import "../styles/index.css";
 
 function AudioPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -43,25 +44,27 @@ function AudioPlayer() {
   }
 
   return (
-    <div>
+    <div className="audio-player">
       <audio
         ref={audioRef}
         src={`https://assets.breatheco.de/apis/sound/${songs[currentSongIndex]?.url}`}
         onEnded={handleNextSong}
       />
-      <button onClick={handlePrevSong}>Previous</button>
-      <button onClick={handlePlayPause}>{isPlaying ? "Pause" : "Play"}</button>
-      <button onClick={handleNextSong}>Next</button>
+      
       <ul>
-        {songs.map((song) => (
+        {songs.map((song, index) => (
           <li
             key={`${song.id}-${song.name}`}
             onClick={() => handleSelectSong(song)}
+            className={index === currentSongIndex ? "selected" : ""}
           >
             {song.name}
           </li>
         ))}
       </ul>
+      <button onClick={handlePrevSong}>Previous</button>
+      <button onClick={handlePlayPause}>{isPlaying ? "Pause" : "Play"}</button>
+      <button onClick={handleNextSong}>Next</button>
     </div>
   );
 }
